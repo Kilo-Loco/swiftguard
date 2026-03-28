@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-28T22:36:17.392Z",
+  "timestamp": "2026-03-28T23:04:53.818Z",
   "repos": 15,
   "filesScanned": 3108,
   "results": [
@@ -694,6 +694,15 @@
           "column": 9,
           "confidence": 0.9,
           "suggestion": "Add synchronization (NSLock, DispatchQueue, OSAllocatedUnfairLock, etc.), make properties immutable (let), or convert to an actor."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'handler' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 15,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (BodyStreamResult, EventLoopPromise<Void>?) -> ()"
         }
       ]
     },
@@ -2066,6 +2075,15 @@
           "column": 79,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 212,
+          "column": 21,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (inout State) throws -> R"
         }
       ]
     },
@@ -3281,6 +3299,15 @@
           "column": 48,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'errorCallouts' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 921,
+          "column": 29,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (ChannelPipeline) -> Void"
         }
       ]
     },
@@ -4388,6 +4415,96 @@
           "column": 34,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'explainer' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 214,
+          "column": 24,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> String"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 353,
+          "column": 76,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 368,
+          "column": 69,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'task' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 376,
+          "column": 25,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 411,
+          "column": 60,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 417,
+          "column": 62,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 436,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 454,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 461,
+          "column": 45,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 827,
+          "column": 17,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (SelectorEvent<NIORegistration>) -> Void"
         }
       ]
     },
@@ -6897,6 +7014,15 @@
           "column": 79,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 212,
+          "column": 21,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (inout State) throws -> R"
         }
       ]
     },
@@ -7231,6 +7357,56 @@
           "column": 88,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        }
+      ]
+    },
+    {
+      "file": "repos/swift-nio/Sources/NIOEmbedded/AsyncTestingEventLoop.swift",
+      "issues": [
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'task' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 138,
+          "column": 25,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> ReturnType"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 401,
+          "column": 67,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 414,
+          "column": 69,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 432,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 452,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> T"
         }
       ]
     },
@@ -10365,6 +10541,15 @@
           "column": 1,
           "confidence": 0.9,
           "suggestion": "Add synchronization (NSLock, DispatchQueue, OSAllocatedUnfairLock, etc.), make properties immutable (let), or convert to an actor."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 191,
+          "column": 40,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Failure) -> Success"
         }
       ]
     },
@@ -10837,6 +11022,56 @@
       ]
     },
     {
+      "file": "repos/swift-nio/Sources/NIOCore/AsyncChannel/AsyncChannelHandler.swift",
+      "issues": [
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_didTerminate' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 336,
+          "column": 24,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_produceMore' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 339,
+          "column": 23,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_didYieldContentsOf' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 380,
+          "column": 30,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Deque<Element>) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_didYield' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 383,
+          "column": 20,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Element) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_didTerminate' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 386,
+          "column": 24,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable ((any Error)?) -> Void"
+        }
+      ]
+    },
+    {
       "file": "repos/swift-nio/Sources/NIOConcurrencyHelpers/NIOLock.swift",
       "issues": [
         {
@@ -10847,6 +11082,38 @@
           "column": 41,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        }
+      ]
+    },
+    {
+      "file": "repos/swift-nio/Sources/NIOConcurrencyHelpers/NIOThreadPoolWorkAvailable.swift",
+      "issues": [
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 111,
+          "column": 17,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> (workDelta: Int, signal: Signal, result: Result)"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 126,
+          "column": 17,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> (workAvailable: Int?, signal: Signal, result: Result)"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 142,
+          "column": 17,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> (workDelta: Int, signal: Signal, result: Result)"
         }
       ]
     },
@@ -23051,6 +23318,15 @@
           "column": 1,
           "confidence": 0.9,
           "suggestion": "Add synchronization (NSLock, DispatchQueue, OSAllocatedUnfairLock, etc.), make properties immutable (let), or convert to an actor."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 975,
+          "column": 30,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (inout Value) -> R"
         }
       ]
     },
@@ -29248,6 +29524,60 @@
           "column": 22,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_block' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 76,
+          "column": 26,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Input) -> Output?"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'block' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 77,
+          "column": 25,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Input) -> Output?"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_asyncBlock' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 82,
+          "column": 31,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Input) async -> Output?"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'asyncBlock' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 83,
+          "column": 30,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Input) async -> Output?"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'block' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 88,
+          "column": 62,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (T, Input) -> Output"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'block' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 95,
+          "column": 62,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (T, Input) async -> Output"
         }
       ]
     },
@@ -29285,6 +29615,101 @@
           "column": 15,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        }
+      ]
+    },
+    {
+      "file": "repos/Kingfisher/Sources/SwiftUI/ImageContext.swift",
+      "issues": [
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_configurations' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 46,
+          "column": 31,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (HoldingView) -> HoldingView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'configurations' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 47,
+          "column": 30,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (HoldingView) -> HoldingView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_renderConfigurations' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 52,
+          "column": 37,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (HoldingView.RenderingView) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'renderConfigurations' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 53,
+          "column": 36,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (HoldingView.RenderingView) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_contentConfiguration' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 58,
+          "column": 37,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (HoldingView) -> AnyView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'contentConfiguration' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 59,
+          "column": 36,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (HoldingView) -> AnyView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_placeholder' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 76,
+          "column": 28,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Progress) -> AnyView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'placeholder' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 77,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Progress) -> AnyView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_failureView' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 82,
+          "column": 28,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> AnyView"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'failureView' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 83,
+          "column": 27,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> AnyView"
         }
       ]
     },
@@ -29432,6 +29857,33 @@
           "column": 13,
           "confidence": 0.8,
           "suggestion": "Ensure the captured type conforms to Sendable, use an actor instead, or pass only value types across the boundary."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 306,
+          "column": 65,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadResult) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 317,
+          "column": 31,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadResult) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'beforeTaskResume' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 427,
+          "column": 28,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadTask) -> Void"
         }
       ]
     },
@@ -29711,6 +30163,51 @@
           "column": 23,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_onShouldApply' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 116,
+          "column": 33,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Bool"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'onShouldApply' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 118,
+          "column": 24,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Bool"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'refresh' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 132,
+          "column": 26,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (KFCrossPlatformImage) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'refresh' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 139,
+          "column": 28,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (KFCrossPlatformImage) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'notify' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 320,
+          "column": 26,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
         }
       ]
     },
@@ -29824,6 +30321,65 @@
           "column": 13,
           "confidence": 0.8,
           "suggestion": "Ensure the captured type conforms to Sendable, use an actor instead, or pass only value types across the boundary."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'progressiveImageSetter' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 286,
+          "column": 34,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (KFCrossPlatformImage?) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'progressiveImageSetter' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 305,
+          "column": 34,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (KFCrossPlatformImage?) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'referenceTaskIdentifierChecker' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 306,
+          "column": 42,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Bool"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'trigger' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 1026,
+          "column": 43,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        }
+      ]
+    },
+    {
+      "file": "repos/Kingfisher/Sources/General/KingfisherOptionsInfo.swift",
+      "issues": [
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for '_onShouldApply' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 491,
+          "column": 33,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Bool"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'onShouldApply' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 493,
+          "column": 24,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Bool"
         }
       ]
     },
@@ -30468,6 +31024,380 @@
       ]
     },
     {
+      "file": "repos/Alamofire/Source/Features/EventMonitor.swift",
+      "issues": [
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'sessionDidBecomeInvalidWithError' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 593,
+          "column": 49,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, (any Error)?) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskDidReceiveChallenge' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 596,
+          "column": 40,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask, URLAuthenticationChallenge) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskDidSendBodyData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 599,
+          "column": 36,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask, Int64, Int64, Int64) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskNeedNewBodyStream' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 602,
+          "column": 38,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskWillPerformHTTPRedirection' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 605,
+          "column": 47,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask, HTTPURLResponse, URLRequest) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskDidFinishCollectingMetrics' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 608,
+          "column": 47,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask, URLSessionTaskMetrics) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskDidComplete' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 611,
+          "column": 32,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask, (any Error)?) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'taskIsWaitingForConnectivity' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 614,
+          "column": 45,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionTask) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'dataTaskDidReceiveResponse' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 617,
+          "column": 43,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionDataTask, URLResponse) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'dataTaskDidReceiveData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 620,
+          "column": 39,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionDataTask, Data) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'dataTaskWillCacheResponse' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 623,
+          "column": 42,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionDataTask, CachedURLResponse) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'downloadTaskDidFinishDownloadingToURL' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 626,
+          "column": 54,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionDownloadTask, URL) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'downloadTaskDidWriteData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 630,
+          "column": 41,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionDownloadTask, Int64, Int64, Int64) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'downloadTaskDidResumeAtOffset' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 633,
+          "column": 46,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (URLSession, URLSessionDownloadTask, Int64, Int64) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCreateInitialURLRequest' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 638,
+          "column": 50,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLRequest) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidFailToCreateURLRequestWithError' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 641,
+          "column": 58,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, AFError) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidAdaptInitialRequestToAdaptedRequest' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 644,
+          "column": 62,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLRequest, URLRequest) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidFailToAdaptURLRequestWithError' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 647,
+          "column": 57,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLRequest, AFError) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCreateURLRequest' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 650,
+          "column": 43,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLRequest) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCreateTask' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 653,
+          "column": 37,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTask) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidGatherMetrics' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 656,
+          "column": 40,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTaskMetrics) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidFailTaskEarlyWithError' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 659,
+          "column": 49,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTask, AFError) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCompleteTaskWithError' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 662,
+          "column": 48,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTask, AFError?) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestIsRetrying' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 665,
+          "column": 34,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidFinish' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 668,
+          "column": 33,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidResume' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 671,
+          "column": 33,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidResumeTask' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 674,
+          "column": 37,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTask) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidSuspend' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 677,
+          "column": 34,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidSuspendTask' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 680,
+          "column": 38,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTask) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCancel' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 683,
+          "column": 33,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCancelTask' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 686,
+          "column": 37,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (Request, URLSessionTask) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidValidateRequestResponseDataWithResult' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 689,
+          "column": 64,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DataRequest, URLRequest?, HTTPURLResponse, Data?, Request.ValidationResult) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidParseResponse' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 692,
+          "column": 40,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DataRequest, DataResponse<Data?, AFError>) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidValidateRequestResponseWithResult' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 695,
+          "column": 60,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DataStreamRequest, URLRequest?, HTTPURLResponse, Request.ValidationResult) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCreateUploadable' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 698,
+          "column": 43,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (UploadRequest, UploadRequest.Uploadable) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidFailToCreateUploadableWithError' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 701,
+          "column": 58,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (UploadRequest, AFError) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidProvideInputStream' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 704,
+          "column": 45,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (UploadRequest, InputStream) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidFinishDownloadingUsingTaskWithResult' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 707,
+          "column": 63,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadRequest, URLSessionTask, Result<URL, AFError>) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidCreateDestinationURL' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 710,
+          "column": 47,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadRequest, URL) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidValidateRequestResponseFileURLWithResult' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 713,
+          "column": 67,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadRequest, URLRequest?, HTTPURLResponse, URL?, Request.ValidationResult) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'requestDidParseDownloadResponse' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 716,
+          "column": 48,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (DownloadRequest, DownloadResponse<URL?, AFError>) -> Void"
+        }
+      ]
+    },
+    {
       "file": "repos/Alamofire/Source/Features/MultipartFormData.swift",
       "issues": [
         {
@@ -30856,6 +31786,15 @@
           "column": 56,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'from' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 293,
+          "column": 39,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () throws -> Void"
         }
       ]
     },
@@ -30934,6 +31873,42 @@
           "column": 64,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'finishHandlers' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 140,
+          "column": 30,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'executeOutside' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 586,
+          "column": 30,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'perform' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 666,
+          "column": 29,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (State) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'perform' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 1071,
+          "column": 52,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
         }
       ]
     },
@@ -31016,6 +31991,33 @@
           "column": 23,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'waitingCompletions' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 94,
+          "column": 46,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable () -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'multipartFormData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 956,
+          "column": 51,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (MultipartFormData) -> Void"
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'multipartFormData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 1006,
+          "column": 51,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (MultipartFormData) -> Void"
         }
       ]
     },
@@ -31085,6 +32087,15 @@
           "column": 50,
           "confidence": 0.95,
           "suggestion": "Use optional binding (if let/guard let) or the nil-coalescing operator (??) instead."
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "severity": "warning",
+          "message": "Closure type for 'handlers' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "line": 137,
+          "column": 56,
+          "confidence": 0.85,
+          "suggestion": "Add @Sendable before the closure type: @Sendable (_ event: IncomingEvent) -> Void"
         }
       ]
     },
@@ -31222,6 +32233,16 @@
           "Alamofire": 2
         }
       },
+      "missing-sendable-closure": {
+        "total": 109,
+        "byRepo": {
+          "vapor": 1,
+          "swift-nio": 27,
+          "realm-swift": 1,
+          "Kingfisher": 30,
+          "Alamofire": 50
+        }
+      },
       "non-sendable-boundary-crossing": {
         "total": 19,
         "byRepo": {
@@ -31240,17 +32261,19 @@
     },
     "byRepo": {
       "vapor": {
-        "total": 129,
+        "total": 130,
         "byRule": {
           "force-unwrap": 125,
           "unsafe-unchecked-sendable": 3,
+          "missing-sendable-closure": 1,
           "non-sendable-boundary-crossing": 1
         }
       },
       "swift-nio": {
-        "total": 1003,
+        "total": 1030,
         "byRule": {
           "force-unwrap": 993,
+          "missing-sendable-closure": 27,
           "non-sendable-boundary-crossing": 5,
           "unsafe-unchecked-sendable": 5
         }
@@ -31284,10 +32307,11 @@
         }
       },
       "realm-swift": {
-        "total": 178,
+        "total": 179,
         "byRule": {
           "force-unwrap": 177,
-          "unsafe-unchecked-sendable": 1
+          "unsafe-unchecked-sendable": 1,
+          "missing-sendable-closure": 1
         }
       },
       "lottie-ios": {
@@ -31329,18 +32353,20 @@
         }
       },
       "Kingfisher": {
-        "total": 117,
+        "total": 147,
         "byRule": {
           "force-unwrap": 104,
+          "missing-sendable-closure": 30,
           "unsafe-unchecked-sendable": 1,
           "non-sendable-boundary-crossing": 11,
           "task-data-race-risk": 1
         }
       },
       "Alamofire": {
-        "total": 72,
+        "total": 122,
         "byRule": {
           "force-unwrap": 70,
+          "missing-sendable-closure": 50,
           "unsafe-unchecked-sendable": 2
         }
       }

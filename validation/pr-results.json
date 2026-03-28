@@ -1,0 +1,687 @@
+{
+  "timestamp": "2026-03-28T23:04:35.089Z",
+  "prsValidated": 3,
+  "totalBeforeIssues": 23,
+  "totalResolvedByPRs": 21,
+  "results": [
+    {
+      "name": "Alamofire #3880: Swift 6 Native Builds",
+      "repo": "Alamofire",
+      "prNumber": 3880,
+      "filesTested": 7,
+      "beforeCount": 12,
+      "afterCount": 21,
+      "resolvedCount": 11,
+      "introducedCount": 20,
+      "before": [
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 497,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 517,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 924,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 1025,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DataRequest.swift",
+          "line": 267,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DownloadRequest.swift",
+          "line": 70,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DataStreamRequest.swift",
+          "line": 442,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1061,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1152,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1185,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1197,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1290,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ],
+      "after": [
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 518,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 539,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 587,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 1181,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Request.swift",
+          "line": 140,
+          "message": "Closure type for 'finishHandlers' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Request.swift",
+          "line": 586,
+          "message": "Closure type for 'executeOutside' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Request.swift",
+          "line": 666,
+          "message": "Closure type for 'perform' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Request.swift",
+          "line": 1071,
+          "message": "Closure type for 'perform' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "unsafe-unchecked-sendable",
+          "file": "Source/Core/SessionDelegate.swift",
+          "line": 28,
+          "message": "'SessionDelegate' conforms to @unchecked Sendable with mutable stored properties but has no visible synchronization. This is likely a thread-safety bug.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DataRequest.swift",
+          "line": 275,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DownloadRequest.swift",
+          "line": 70,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DataStreamRequest.swift",
+          "line": 449,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/DataStreamRequest.swift",
+          "line": 293,
+          "message": "Closure type for 'from' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1158,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1250,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1283,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1295,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1398,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Session.swift",
+          "line": 94,
+          "message": "Closure type for 'waitingCompletions' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Session.swift",
+          "line": 956,
+          "message": "Closure type for 'multipartFormData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        },
+        {
+          "rule": "missing-sendable-closure",
+          "file": "Source/Core/Session.swift",
+          "line": 1006,
+          "message": "Closure type for 'multipartFormData' in @unchecked Sendable class is missing @Sendable. Closures that cross concurrency boundaries must be @Sendable.",
+          "severity": "warning",
+          "confidence": 0.85
+        }
+      ],
+      "resolved": [
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 497,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 517,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 924,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Request.swift",
+          "line": 1025,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DataRequest.swift",
+          "line": 267,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/DataStreamRequest.swift",
+          "line": 442,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1061,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1152,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1185,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1197,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Source/Core/Session.swift",
+          "line": 1290,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "name": "Vapor #3054: Add Sendable Conformances",
+      "repo": "vapor",
+      "prNumber": 3054,
+      "filesTested": 15,
+      "beforeCount": 10,
+      "afterCount": 11,
+      "resolvedCount": 10,
+      "introducedCount": 11,
+      "before": [
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 122,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 131,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 160,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Cache/MemoryCache.swift",
+          "line": 116,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Commands/ServeCommand.swift",
+          "line": 85,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 29,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 34,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 94,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 223,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 231,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ],
+      "after": [
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 251,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 263,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 281,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 309,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 340,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Commands/ServeCommand.swift",
+          "line": 97,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 31,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 36,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 96,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 229,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 237,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ],
+      "resolved": [
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 122,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 131,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Application.swift",
+          "line": 160,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Cache/MemoryCache.swift",
+          "line": 116,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Vapor/Commands/ServeCommand.swift",
+          "line": 85,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 29,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 34,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 94,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 223,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Development/routes.swift",
+          "line": 231,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "name": "Kingfisher #2488: Avoid non-Sendable RetryDecision capture",
+      "repo": "Kingfisher",
+      "prNumber": 2488,
+      "filesTested": 1,
+      "beforeCount": 1,
+      "afterCount": 3,
+      "resolvedCount": 0,
+      "introducedCount": 2,
+      "before": [
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Networking/ImagePrefetcher.swift",
+          "line": 220,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ],
+      "after": [
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Networking/ImagePrefetcher.swift",
+          "line": 220,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Networking/ImagePrefetcher.swift",
+          "line": 305,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        },
+        {
+          "rule": "force-unwrap",
+          "file": "Sources/Networking/ImagePrefetcher.swift",
+          "line": 313,
+          "message": "Force unwrap operator used. This will crash at runtime if the value is nil.",
+          "severity": "warning",
+          "confidence": 0.95
+        }
+      ],
+      "resolved": []
+    }
+  ]
+}

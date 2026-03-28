@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-03-28T23:03:58.260Z",
+  "rules": {
+    "force-unwrap": {
+      "totalIssues": 2950,
+      "byRepo": {
+        "vapor": 125,
+        "swift-nio": 993,
+        "swift-dependencies": 17,
+        "swift-composable-architecture": 221,
+        "swift-collections": 691,
+        "swift-algorithms": 35,
+        "realm-swift": 177,
+        "lottie-ios": 121,
+        "SwiftyJSON": 16,
+        "SnapKit": 8,
+        "SDWebImageSwiftUI": 17,
+        "RxSwift": 325,
+        "Moya": 30,
+        "Kingfisher": 104,
+        "Alamofire": 70
+      }
+    },
+    "unsafe-unchecked-sendable": {
+      "totalIssues": 19,
+      "byRepo": {
+        "vapor": 3,
+        "swift-nio": 5,
+        "swift-dependencies": 1,
+        "swift-composable-architecture": 3,
+        "swift-collections": 1,
+        "realm-swift": 1,
+        "SwiftyJSON": 1,
+        "RxSwift": 1,
+        "Kingfisher": 1,
+        "Alamofire": 2
+      }
+    },
+    "missing-sendable-closure": {
+      "totalIssues": 109,
+      "byRepo": {
+        "vapor": 1,
+        "swift-nio": 27,
+        "realm-swift": 1,
+        "Kingfisher": 30,
+        "Alamofire": 50
+      }
+    },
+    "non-sendable-boundary-crossing": {
+      "totalIssues": 19,
+      "byRepo": {
+        "vapor": 1,
+        "swift-nio": 5,
+        "swift-composable-architecture": 2,
+        "Kingfisher": 11
+      }
+    },
+    "task-data-race-risk": {
+      "totalIssues": 1,
+      "byRepo": {
+        "Kingfisher": 1
+      }
+    }
+  },
+  "prs": {
+    "Alamofire #3880: Swift 6 Native Builds": {
+      "beforeCount": 12,
+      "afterCount": 21,
+      "resolvedCount": 11
+    },
+    "Vapor #3054: Add Sendable Conformances": {
+      "beforeCount": 10,
+      "afterCount": 11,
+      "resolvedCount": 10
+    },
+    "Kingfisher #2488: Avoid non-Sendable RetryDecision capture": {
+      "beforeCount": 1,
+      "afterCount": 3,
+      "resolvedCount": 0
+    }
+  }
+}

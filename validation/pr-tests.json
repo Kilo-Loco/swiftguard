@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Alamofire #3880: Swift 6 Native Builds",
+    "repo": "Alamofire",
+    "repoUrl": "https://github.com/Alamofire/Alamofire",
+    "prNumber": 3880,
+    "baseSha": "57162788f5dc388b5c3692611bcfa179ee8c2067",
+    "files": [
+      "Source/Core/Protected.swift",
+      "Source/Core/Request.swift",
+      "Source/Core/SessionDelegate.swift",
+      "Source/Core/DataRequest.swift",
+      "Source/Core/DownloadRequest.swift",
+      "Source/Core/DataStreamRequest.swift",
+      "Source/Core/Session.swift"
+    ],
+    "expectedCatches": ["unsafe-unchecked-sendable", "missing-sendable-closure"]
+  },
+  {
+    "name": "Vapor #3054: Add Sendable Conformances",
+    "repo": "vapor",
+    "repoUrl": "https://github.com/vapor/vapor",
+    "prNumber": 3054,
+    "baseSha": "fe973db5f48f7bb2bcf394b5932afa9884b6e589",
+    "files": [
+      "Sources/Vapor/Application.swift",
+      "Sources/Vapor/Authentication/AuthenticationCache.swift",
+      "Sources/Vapor/Authentication/BasicAuthorization.swift",
+      "Sources/Vapor/Authentication/RedirectMiddleware.swift",
+      "Sources/Vapor/Cache/Application+Cache.swift",
+      "Sources/Vapor/Cache/CacheExpirationTime.swift",
+      "Sources/Vapor/Cache/MemoryCache.swift",
+      "Sources/Vapor/Client/Application+Clients.swift",
+      "Sources/Vapor/Client/Client.swift",
+      "Sources/Vapor/Client/ClientRequest.swift",
+      "Sources/Vapor/Client/ClientResponse.swift",
+      "Sources/Vapor/Commands/ServeCommand.swift",
+      "Sources/Vapor/Concurrency/AsyncBasicResponder.swift",
+      "Sources/Vapor/Authentication/BearerAuthorization.swift",
+      "Sources/Development/routes.swift"
+    ],
+    "expectedCatches": ["missing-sendable-conformance"]
+  },
+  {
+    "name": "Kingfisher #2488: Avoid non-Sendable RetryDecision capture",
+    "repo": "Kingfisher",
+    "repoUrl": "https://github.com/onevcat/Kingfisher",
+    "prNumber": 2488,
+    "baseSha": "86eec3252deb8eea41e0585dc4970984379b22f8",
+    "files": ["Sources/Networking/ImagePrefetcher.swift"],
+    "expectedCatches": ["missing-sendable-closure", "non-sendable-boundary-crossing"]
+  }
+]

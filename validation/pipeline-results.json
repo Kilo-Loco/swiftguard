@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-03-28T23:03:58.273Z",
+  "unitTests": {
+    "passed": 86,
+    "total": 86,
+    "success": true
+  },
+  "repoScan": {
+    "filesScanned": 3108,
+    "issuesByRule": {
+      "force-unwrap": {
+        "total": 2950,
+        "byRepo": {
+          "vapor": 125,
+          "swift-nio": 993,
+          "swift-dependencies": 17,
+          "swift-composable-architecture": 221,
+          "swift-collections": 691,
+          "swift-algorithms": 35,
+          "realm-swift": 177,
+          "lottie-ios": 121,
+          "SwiftyJSON": 16,
+          "SnapKit": 8,
+          "SDWebImageSwiftUI": 17,
+          "RxSwift": 325,
+          "Moya": 30,
+          "Kingfisher": 104,
+          "Alamofire": 70
+        }
+      },
+      "unsafe-unchecked-sendable": {
+        "total": 19,
+        "byRepo": {
+          "vapor": 3,
+          "swift-nio": 5,
+          "swift-dependencies": 1,
+          "swift-composable-architecture": 3,
+          "swift-collections": 1,
+          "realm-swift": 1,
+          "SwiftyJSON": 1,
+          "RxSwift": 1,
+          "Kingfisher": 1,
+          "Alamofire": 2
+        }
+      },
+      "missing-sendable-closure": {
+        "total": 109,
+        "byRepo": {
+          "vapor": 1,
+          "swift-nio": 27,
+          "realm-swift": 1,
+          "Kingfisher": 30,
+          "Alamofire": 50
+        }
+      },
+      "non-sendable-boundary-crossing": {
+        "total": 19,
+        "byRepo": {
+          "vapor": 1,
+          "swift-nio": 5,
+          "swift-composable-architecture": 2,
+          "Kingfisher": 11
+        }
+      },
+      "task-data-race-risk": {
+        "total": 1,
+        "byRepo": {
+          "Kingfisher": 1
+        }
+      }
+    }
+  },
+  "prRegression": {
+    "prsRun": 3,
+    "results": [
+      {
+        "name": "Alamofire #3880: Swift 6 Native Builds",
+        "repo": "Alamofire",
+        "prNumber": 3880,
+        "filesTested": 7,
+        "beforeCount": 12,
+        "afterCount": 21,
+        "resolvedCount": 11,
+        "introducedCount": 20,
+        "expectedCatches": [
+          "unsafe-unchecked-sendable",
+          "missing-sendable-closure"
+        ],
+        "caughtExpected": []
+      },
+      {
+        "name": "Vapor #3054: Add Sendable Conformances",
+        "repo": "vapor",
+        "prNumber": 3054,
+        "filesTested": 15,
+        "beforeCount": 10,
+        "afterCount": 11,
+        "resolvedCount": 10,
+        "introducedCount": 11,
+        "expectedCatches": [
+          "missing-sendable-conformance"
+        ],
+        "caughtExpected": []
+      },
+      {
+        "name": "Kingfisher #2488: Avoid non-Sendable RetryDecision capture",
+        "repo": "Kingfisher",
+        "prNumber": 2488,
+        "filesTested": 1,
+        "beforeCount": 1,
+        "afterCount": 3,
+        "resolvedCount": 0,
+        "introducedCount": 2,
+        "expectedCatches": [
+          "missing-sendable-closure",
+          "non-sendable-boundary-crossing"
+        ],
+        "caughtExpected": []
+      }
+    ]
+  },
+  "baselineComparison": {
+    "newCatches": 0,
+    "regressions": 0,
+    "falsePositives": 0,
+    "details": []
+  }
+}

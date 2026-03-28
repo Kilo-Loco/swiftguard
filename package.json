@@ -11,7 +11,13 @@
     "test:watch": "vitest",
     "validate:clone": "bash scripts/clone-repos.sh",
     "validate:run": "npx tsx scripts/validate.ts",
-    "validate": "npm run validate:clone && npm run validate:run"
+    "validate": "npm run validate:clone && npm run validate:run",
+    "validate:prs": "npx tsx scripts/pr-validate.ts",
+    "test:pipeline": "npx tsx scripts/test-pipeline.ts --full",
+    "test:repos": "npx tsx scripts/test-pipeline.ts --repos",
+    "test:prs": "npx tsx scripts/test-pipeline.ts --prs",
+    "test:baseline": "npx tsx scripts/test-pipeline.ts --baseline",
+    "test:compare": "npx tsx scripts/test-pipeline.ts --compare"
   },
   "dependencies": {
     "next": "16.2.1",
