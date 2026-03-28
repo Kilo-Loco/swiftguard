@@ -51,8 +51,7 @@ export default function DocsPage() {
           </p>
           <Code>{`Authorization: Bearer sg_demo_key_2026`}</Code>
           <p className="text-xs text-text-dim mt-3">
-            The demo key is rate-limited to 100 requests/minute. Authentication is optional for the live demo
-            on the landing page.
+            The demo key is rate-limited to 100 requests/minute. Authentication is optional for the live demo on the landing page.
           </p>
         </section>
 
@@ -199,30 +198,10 @@ for issue in data["issues"]:
         {/* Rate Limits */}
         <section className="mb-16">
           <h2 className="text-xl font-bold mb-4" id="rate-limits">Rate Limits</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border text-left text-text-muted">
-                  <th className="py-3 pr-4">Plan</th>
-                  <th className="py-3 pr-4">Requests / month</th>
-                  <th className="py-3">Burst limit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-border/50">
-                  <td className="py-3 pr-4 font-semibold">Free</td>
-                  <td className="py-3 pr-4 text-text-muted">500</td>
-                  <td className="py-3 text-text-muted">100 req/min</td>
-                </tr>
-                <tr className="border-b border-border/50">
-                  <td className="py-3 pr-4 font-semibold">Pro ($29/mo)</td>
-                  <td className="py-3 pr-4 text-text-muted">Unlimited</td>
-                  <td className="py-3 text-text-muted">100 req/min</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs text-text-dim mt-3">
+          <p className="text-text-muted mb-4 text-sm">
+            To keep the service reliable for everyone, the API is rate-limited to <strong className="text-text">100 requests per minute</strong>.
+          </p>
+          <p className="text-xs text-text-dim">
             When rate limited, the API returns HTTP 429 with a JSON error body.
           </p>
         </section>

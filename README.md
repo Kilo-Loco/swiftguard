@@ -1,6 +1,6 @@
 # SwiftGuard
 
-A Swift code review API that catches concurrency bugs, Sendable violations, and actor isolation issues using AST parsing (tree-sitter-swift) — not regex.
+Free and open source Swift code review API that catches concurrency bugs, Sendable violations, and actor isolation issues using AST parsing (tree-sitter-swift) — not regex.
 
 ## Quick Start
 
@@ -99,11 +99,11 @@ src/
 │   ├── docs/page.tsx               # API documentation
 │   ├── components/
 │   │   ├── LiveDemo.tsx            # Interactive code analyzer
-│   │   └── EmailSignup.tsx         # Email collection form
+│   │   └── EmailSignup.tsx         # Email signup for updates
 │   └── api/v1/
 │       ├── review/route.ts         # Code review API endpoint
 │       └── signup/route.ts         # Email signup endpoint
-├── middleware.ts                    # API key auth + rate limiting
+├── proxy.ts                        # API key auth + rate limiting
 ├── lib/
 │   ├── parser.ts                   # tree-sitter-swift parser
 │   └── rules/                      # 7 AST-powered lint rules

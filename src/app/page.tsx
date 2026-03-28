@@ -74,7 +74,6 @@ export default function Home() {
           <div className="flex items-center gap-6 text-sm text-text-muted">
             <a href="#demo" className="hover:text-text transition-colors">Demo</a>
             <a href="#rules" className="hover:text-text transition-colors">Rules</a>
-            <a href="#pricing" className="hover:text-text transition-colors">Pricing</a>
             <a href="/docs" className="hover:text-text transition-colors">Docs</a>
           </div>
         </div>
@@ -230,44 +229,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold text-center mb-10">Pricing</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          <div className="bg-bg-card border border-border rounded-xl p-6">
-            <h3 className="font-semibold mb-1">Free</h3>
-            <div className="text-3xl font-bold mb-4">$0</div>
-            <ul className="text-sm text-text-muted space-y-2">
-              <li>500 requests / month</li>
-              <li>All 7 rules</li>
-              <li>JSON API access</li>
-              <li>Community support</li>
-            </ul>
-          </div>
-          <div className="bg-bg-card border border-accent-purple/40 rounded-xl p-6 relative">
-            <div className="absolute -top-3 right-4 px-2 py-0.5 rounded text-xs font-semibold bg-accent-purple text-white">
-              Popular
-            </div>
-            <h3 className="font-semibold mb-1">Pro</h3>
-            <div className="text-3xl font-bold mb-4">
-              $29<span className="text-sm font-normal text-text-muted">/mo</span>
-            </div>
-            <ul className="text-sm text-text-muted space-y-2">
-              <li>Unlimited requests</li>
-              <li>All 7 rules</li>
-              <li>Priority API</li>
-              <li>Custom rule configs</li>
-              <li>Email support</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* Stay Updated */}
       <section className="max-w-6xl mx-auto px-6 py-16 text-center">
-        <h2 className="text-2xl font-bold mb-3">Get your API key</h2>
+        <h2 className="text-2xl font-bold mb-3">Stay updated</h2>
         <p className="text-text-muted mb-8 text-sm">
-          Enter your email and we&apos;ll send you an API key. Start analyzing Swift code in minutes.
+          Get notified when we add new rules and updates.
         </p>
         <div className="flex justify-center">
           <EmailSignup />

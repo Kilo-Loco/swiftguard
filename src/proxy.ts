@@ -28,7 +28,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.json(
       {
         error: "Invalid Authorization header format. Use: Authorization: Bearer <api-key>",
-        hint: "Get a demo key at the SwiftGuard landing page or use: sg_demo_key_2026",
+        hint: "Use: Authorization: Bearer sg_demo_key_2026",
       },
       { status: 401 }
     );

@@ -318,10 +318,10 @@ export default function RepoScanner() {
               Want this in your CI pipeline?
             </span>
             <a
-              href="#pricing"
+              href="/docs"
               className="text-xs font-semibold text-accent-blue hover:text-accent-purple transition-colors"
             >
-              Get API key for CI integration &rarr;
+              Check out the API docs &rarr;
             </a>
           </div>
         </div>

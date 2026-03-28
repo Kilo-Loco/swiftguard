@@ -30,7 +30,7 @@ export default function EmailSignup() {
   if (status === "success") {
     return (
       <p className="text-success text-sm font-medium">
-        You&apos;re on the list! We&apos;ll send your API key soon.
+        You&apos;re on the list! We&apos;ll keep you posted on new rules and updates.
       </p>
     );
   }
@@ -50,7 +50,7 @@ export default function EmailSignup() {
         disabled={status === "loading"}
         className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to hover:opacity-90 disabled:opacity-50 transition-opacity cursor-pointer"
       >
-        {status === "loading" ? "..." : "Get API Key"}
+        {status === "loading" ? "..." : "Subscribe"}
       </button>
       {status === "error" && (
         <span className="text-severity-error text-xs self-center">Failed. Try again.</span>
