@@ -1,4 +1,5 @@
 import LiveDemo from "./components/LiveDemo";
+import RepoScanner from "./components/RepoScanner";
 import EmailSignup from "./components/EmailSignup";
 
 const CONCURRENCY_RULES = [
@@ -86,10 +87,10 @@ export default function Home() {
         </div>
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
           <span className="bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to bg-clip-text text-transparent">
-            SwiftGuard
+            Paste your repo.
           </span>
           <br />
-          <span className="text-text">Swift Code Review API</span>
+          <span className="text-text">Get a free concurrency audit.</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
           Catch concurrency bugs, Sendable violations, and actor isolation issues before
@@ -127,11 +128,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Live Demo */}
+      {/* Repo Scanner */}
       <section id="demo" className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold text-center mb-3">Try it now</h2>
+        <h2 className="text-2xl font-bold text-center mb-3">Scan a GitHub repo</h2>
         <p className="text-text-muted text-center mb-10 text-sm">
-          Paste Swift code below and hit Analyze. No signup required.
+          Paste a public GitHub repo URL and get a full concurrency audit. No signup required.
+        </p>
+        <RepoScanner />
+      </section>
+
+      {/* Paste code demo */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="text-2xl font-bold text-center mb-3">Or paste Swift code directly</h2>
+        <p className="text-text-muted text-center mb-10 text-sm">
+          Drop in a snippet and hit Analyze for instant feedback.
         </p>
         <LiveDemo />
       </section>

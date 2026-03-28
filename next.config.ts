@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
       "./node_modules/tree-sitter/**/*",
       "./node_modules/tree-sitter-swift/**/*",
     ],
+    "/api/v1/scan-repo": [
+      "./node_modules/tree-sitter/**/*",
+      "./node_modules/tree-sitter-swift/**/*",
+    ],
   },
 };
 
