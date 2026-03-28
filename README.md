@@ -75,7 +75,7 @@ Tested against 15 top Swift repositories (Alamofire, Kingfisher, Vapor, swift-ni
 ## Self-Hosting
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Kilo-Loco/swiftguard.git
 cd swiftguard
 npm install
 npm run build

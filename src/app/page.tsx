@@ -267,10 +267,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-dim">
-          <span>Built by Kilo Loco</span>
+          <span>Built by <a href="https://twitter.com/Kilo_Loco" className="hover:text-accent-blue transition-colors">Kilo Loco</a></span>
           <div className="flex gap-6">
             <a href="/docs" className="hover:text-text-muted transition-colors">Docs</a>
             <a href="#demo" className="hover:text-text-muted transition-colors">Demo</a>
+            <a href="https://github.com/Kilo-Loco/swiftguard" className="hover:text-text-muted transition-colors">GitHub</a>
           </div>
         </div>
       </footer>

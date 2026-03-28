@@ -261,7 +261,7 @@ for issue in data["issues"]:
       <footer className="border-t border-border py-8">
         <div className="max-w-4xl mx-auto px-6 flex items-center justify-between text-sm text-text-dim">
           <a href="/" className="hover:text-text-muted transition-colors">&larr; Back to SwiftGuard</a>
-          <span>Built by Kilo Loco</span>
+          <span>Built by <a href="https://twitter.com/Kilo_Loco" className="hover:text-accent-blue transition-colors">Kilo Loco</a> · <a href="https://github.com/Kilo-Loco/swiftguard" className="hover:text-accent-blue transition-colors">GitHub</a></span>
         </div>
       </footer>
     </div>
