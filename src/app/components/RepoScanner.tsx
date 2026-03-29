@@ -91,6 +91,7 @@ export default function RepoScanner() {
 
       setResult(data);
       setStatusText("");
+      setUrl("");
     } catch {
       setError("Failed to connect to API. Please try again.");
     } finally {
@@ -135,15 +136,7 @@ export default function RepoScanner() {
         </button>
       </div>
 
-      {/* Powered by badge */}
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-[10px] text-text-dim">
-          Powered by tree-sitter AST analysis
-        </span>
-        <span className="text-[10px] text-text-dim">
-          Public repos only
-        </span>
-      </div>
+      <div className="mb-4" />
 
       {/* Loading state */}
       {loading && (
@@ -312,18 +305,7 @@ export default function RepoScanner() {
             </div>
           )}
 
-          {/* CTA */}
-          <div className="flex items-center justify-between pt-4 border-t border-border">
-            <span className="text-xs text-text-dim">
-              Want this in your CI pipeline?
-            </span>
-            <a
-              href="/docs"
-              className="text-xs font-semibold text-accent-blue hover:text-accent-purple transition-colors"
-            >
-              Check out the API docs &rarr;
-            </a>
-          </div>
+
         </div>
       )}
     </div>
