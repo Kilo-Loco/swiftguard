@@ -56,15 +56,15 @@ interface ReviewResponse {
 }
 
 const severityColor: Record<string, string> = {
-  error: "text-severity-error",
-  warning: "text-severity-warning",
-  info: "text-severity-info",
+  error: "text-red-500",
+  warning: "text-amber-500",
+  info: "text-blue-400",
 };
 
 const severityBg: Record<string, string> = {
-  error: "bg-severity-error/15",
-  warning: "bg-severity-warning/15",
-  info: "bg-severity-info/15",
+  error: "bg-red-500/15",
+  warning: "bg-amber-500/15",
+  info: "bg-blue-400/15",
 };
 
 export default function LiveDemo() {
@@ -100,11 +100,11 @@ export default function LiveDemo() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <label className="text-sm font-medium text-text-muted">Swift Source Code</label>
+          <label className="text-sm font-medium text-zinc-400">Swift Source Code</label>
           <button
             onClick={handleAnalyze}
             disabled={loading || !code.trim()}
-            className="px-5 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to hover:opacity-90 disabled:opacity-40 transition-opacity cursor-pointer disabled:cursor-not-allowed"
+            className="px-5 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 disabled:opacity-40 transition-opacity cursor-pointer disabled:cursor-not-allowed"
           >
             {loading ? "Analyzing..." : "Analyze Code"}
           </button>
@@ -113,63 +113,63 @@ export default function LiveDemo() {
           value={code}
           onChange={(e) => setCode(e.target.value)}
           spellCheck={false}
-          className="w-full h-[420px] bg-bg-card border border-border rounded-lg p-4 font-mono text-sm text-text resize-none focus:outline-none focus:border-accent-blue/50 transition-colors"
+          className="w-full h-[420px] bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-100 resize-none focus:outline-none focus:border-blue-500/50 transition-colors"
           placeholder="Paste Swift code here..."
         />
       </div>
 
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-text-muted">Results</span>
+          <span className="text-sm font-medium text-zinc-400">Results</span>
           {result && (
-            <span className="text-xs text-text-dim">
+            <span className="text-xs text-zinc-600">
               {result.issues.length} issue{result.issues.length !== 1 ? "s" : ""} &middot;{" "}
               {result.metadata.rulesApplied} rules &middot; {result.metadata.parseTimeMs}ms
             </span>
           )}
         </div>
-        <div className="w-full h-[420px] bg-bg-card border border-border rounded-lg p-4 overflow-y-auto">
+        <div className="w-full h-[420px] bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-y-auto">
           {!result && !error && !loading && (
-            <div className="h-full flex items-center justify-center text-text-dim text-sm">
+            <div className="h-full flex items-center justify-center text-zinc-600 text-sm">
               Click &quot;Analyze Code&quot; to see results
             </div>
           )}
           {loading && (
-            <div className="h-full flex items-center justify-center text-text-muted text-sm">
+            <div className="h-full flex items-center justify-center text-zinc-400 text-sm">
               <span className="animate-pulse">Analyzing...</span>
             </div>
           )}
           {error && (
-            <div className="p-3 rounded-lg bg-severity-error/10 text-severity-error text-sm">
+            <div className="p-3 rounded-lg bg-red-500/10 text-red-500 text-sm">
               {error}
             </div>
           )}
           {result && result.issues.length === 0 && (
-            <div className="h-full flex items-center justify-center text-success text-sm">
+            <div className="h-full flex items-center justify-center text-green-500 text-sm">
               No issues found
             </div>
           )}
           {result && result.issues.length > 0 && (
             <div className="flex flex-col gap-3">
               {result.issues.map((issue, i) => (
-                <div key={i} className={`p-3 rounded-lg border border-border ${severityBg[issue.severity]}`}>
+                <div key={i} className={`p-3 rounded-lg border border-zinc-800 ${severityBg[issue.severity]}`}>
                   <div className="flex items-start justify-between gap-2 mb-1">
                     <span className={`text-xs font-semibold uppercase ${severityColor[issue.severity]}`}>
                       {issue.severity}
                     </span>
-                    <span className="text-xs text-text-dim font-mono">
+                    <span className="text-xs text-zinc-600 font-mono">
                       L{issue.line}:{issue.column}
                     </span>
                   </div>
-                  <p className="text-sm text-text mb-1">{issue.message}</p>
+                  <p className="text-sm text-zinc-100 mb-1">{issue.message}</p>
                   <div className="flex items-center justify-between">
-                    <code className="text-xs text-text-muted font-mono">{issue.rule}</code>
-                    <span className="text-xs text-text-dim">
+                    <code className="text-xs text-zinc-400 font-mono">{issue.rule}</code>
+                    <span className="text-xs text-zinc-600">
                       {Math.round(issue.confidence * 100)}% confidence
                     </span>
                   </div>
                   {issue.suggestion && (
-                    <p className="text-xs text-text-muted mt-2 pt-2 border-t border-border">
+                    <p className="text-xs text-zinc-400 mt-2 pt-2 border-t border-zinc-800">
                       {issue.suggestion}
                     </p>
                   )}

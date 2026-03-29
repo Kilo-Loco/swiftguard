@@ -15,7 +15,7 @@ const RULES = [
 
 function Code({ children }: { children: string }) {
   return (
-    <pre className="bg-bg-card border border-border rounded-lg p-4 overflow-x-auto text-sm font-mono text-text-muted leading-relaxed">
+    <pre className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-x-auto text-sm font-mono text-zinc-400 leading-relaxed">
       {children}
     </pre>
   );
@@ -25,19 +25,19 @@ export default function DocsPage() {
   return (
     <div className="min-h-screen">
       {/* Nav */}
-      <nav className="border-b border-border sticky top-0 bg-bg/80 backdrop-blur-sm z-50">
+      <nav className="border-b border-zinc-800 sticky top-0 bg-zinc-950/80 backdrop-blur-sm z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-lg font-bold bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to bg-clip-text text-transparent">
+          <a href="/" className="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
             SwiftGuard
           </a>
-          <span className="text-sm text-text-muted">API Documentation</span>
+          <span className="text-sm text-zinc-400">API Documentation</span>
         </div>
       </nav>
 
       <main className="max-w-4xl mx-auto px-6 py-12">
         {/* Intro */}
         <h1 className="text-3xl font-bold mb-4">API Reference</h1>
-        <p className="text-text-muted mb-12">
+        <p className="text-zinc-400 mb-12">
           SwiftGuard analyzes Swift source code for concurrency bugs, Sendable violations, and common
           pitfalls using AST parsing. All responses are JSON.
         </p>
@@ -45,12 +45,12 @@ export default function DocsPage() {
         {/* Auth */}
         <section className="mb-16">
           <h2 className="text-xl font-bold mb-4" id="authentication">Authentication</h2>
-          <p className="text-text-muted mb-4 text-sm">
-            Pass your API key in the <code className="text-accent-blue font-mono">Authorization</code> header.
+          <p className="text-zinc-400 mb-4 text-sm">
+            Pass your API key in the <code className="text-blue-500 font-mono">Authorization</code> header.
             For testing, use the demo key.
           </p>
           <Code>{`Authorization: Bearer sg_demo_key_2026`}</Code>
-          <p className="text-xs text-text-dim mt-3">
+          <p className="text-xs text-zinc-600 mt-3">
             The demo key is rate-limited to 100 requests/minute. Authentication is optional for the live demo on the landing page.
           </p>
         </section>
@@ -59,7 +59,7 @@ export default function DocsPage() {
         <section className="mb-16">
           <h2 className="text-xl font-bold mb-4" id="endpoint">Endpoint</h2>
           <div className="flex items-center gap-3 mb-6">
-            <span className="px-2 py-1 rounded text-xs font-bold bg-accent-blue/20 text-accent-blue">POST</span>
+            <span className="px-2 py-1 rounded text-xs font-bold bg-blue-500/20 text-blue-500">POST</span>
             <code className="font-mono text-sm">/api/v1/review</code>
           </div>
 
@@ -70,10 +70,10 @@ export default function DocsPage() {
   "platform": "ios"          // optional
 }`}</Code>
 
-          <div className="mt-4 text-sm text-text-muted">
-            <p className="mb-2"><strong className="text-text">source</strong> (required) — Swift source code as a string.</p>
-            <p className="mb-2"><strong className="text-text">swiftVersion</strong> (optional) — Target Swift version. Default: latest.</p>
-            <p><strong className="text-text">platform</strong> (optional) — Target platform (ios, macos, server). For future use.</p>
+          <div className="mt-4 text-sm text-zinc-400">
+            <p className="mb-2"><strong className="text-zinc-100">source</strong> (required) — Swift source code as a string.</p>
+            <p className="mb-2"><strong className="text-zinc-100">swiftVersion</strong> (optional) — Target Swift version. Default: latest.</p>
+            <p><strong className="text-zinc-100">platform</strong> (optional) — Target platform (ios, macos, server). For future use.</p>
           </div>
         </section>
 
@@ -99,15 +99,15 @@ export default function DocsPage() {
   }
 }`}</Code>
 
-          <div className="mt-4 text-sm text-text-muted space-y-2">
-            <p><strong className="text-text">issues[]</strong> — Array of detected problems.</p>
-            <p><strong className="text-text">issues[].rule</strong> — Rule identifier.</p>
-            <p><strong className="text-text">issues[].severity</strong> — <code className="font-mono">&quot;error&quot;</code> | <code className="font-mono">&quot;warning&quot;</code> | <code className="font-mono">&quot;info&quot;</code></p>
-            <p><strong className="text-text">issues[].confidence</strong> — 0.0 to 1.0. Higher means more certain.</p>
-            <p><strong className="text-text">issues[].suggestion</strong> — Recommended fix.</p>
-            <p><strong className="text-text">metadata.rulesApplied</strong> — Number of rules evaluated.</p>
-            <p><strong className="text-text">metadata.parseTimeMs</strong> — Parse time in milliseconds.</p>
-            <p><strong className="text-text">metadata.astValid</strong> — Whether the AST parsed without errors.</p>
+          <div className="mt-4 text-sm text-zinc-400 space-y-2">
+            <p><strong className="text-zinc-100">issues[]</strong> — Array of detected problems.</p>
+            <p><strong className="text-zinc-100">issues[].rule</strong> — Rule identifier.</p>
+            <p><strong className="text-zinc-100">issues[].severity</strong> — <code className="font-mono">&quot;error&quot;</code> | <code className="font-mono">&quot;warning&quot;</code> | <code className="font-mono">&quot;info&quot;</code></p>
+            <p><strong className="text-zinc-100">issues[].confidence</strong> — 0.0 to 1.0. Higher means more certain.</p>
+            <p><strong className="text-zinc-100">issues[].suggestion</strong> — Recommended fix.</p>
+            <p><strong className="text-zinc-100">metadata.rulesApplied</strong> — Number of rules evaluated.</p>
+            <p><strong className="text-zinc-100">metadata.parseTimeMs</strong> — Parse time in milliseconds.</p>
+            <p><strong className="text-zinc-100">metadata.astValid</strong> — Whether the AST parsed without errors.</p>
           </div>
         </section>
 
@@ -117,7 +117,7 @@ export default function DocsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border text-left text-text-muted">
+                <tr className="border-b border-zinc-800 text-left text-zinc-400">
                   <th className="py-3 pr-4">Rule ID</th>
                   <th className="py-3 pr-4">Severity</th>
                   <th className="py-3 pr-4">Confidence</th>
@@ -126,19 +126,19 @@ export default function DocsPage() {
               </thead>
               <tbody>
                 {RULES.map((rule) => (
-                  <tr key={rule.id} className="border-b border-border/50">
+                  <tr key={rule.id} className="border-b border-zinc-800/50">
                     <td className="py-3 pr-4 font-mono text-xs">{rule.id}</td>
                     <td className="py-3 pr-4">
                       <span className={`text-xs font-semibold ${
-                        rule.severity === "error" ? "text-severity-error" :
-                        rule.severity === "warning" ? "text-severity-warning" :
-                        "text-severity-info"
+                        rule.severity === "error" ? "text-red-500" :
+                        rule.severity === "warning" ? "text-amber-500" :
+                        "text-blue-400"
                       }`}>
                         {rule.severity}
                       </span>
                     </td>
-                    <td className="py-3 pr-4 text-text-dim font-mono text-xs">{rule.confidence}</td>
-                    <td className="py-3 text-text-muted">{rule.description}</td>
+                    <td className="py-3 pr-4 text-zinc-600 font-mono text-xs">{rule.confidence}</td>
+                    <td className="py-3 text-zinc-400">{rule.description}</td>
                   </tr>
                 ))}
               </tbody>
@@ -198,10 +198,10 @@ for issue in data["issues"]:
         {/* Rate Limits */}
         <section className="mb-16">
           <h2 className="text-xl font-bold mb-4" id="rate-limits">Rate Limits</h2>
-          <p className="text-text-muted mb-4 text-sm">
-            To keep the service reliable for everyone, the API is rate-limited to <strong className="text-text">100 requests per minute</strong>.
+          <p className="text-zinc-400 mb-4 text-sm">
+            To keep the service reliable for everyone, the API is rate-limited to <strong className="text-zinc-100">100 requests per minute</strong>.
           </p>
-          <p className="text-xs text-text-dim">
+          <p className="text-xs text-zinc-600">
             When rate limited, the API returns HTTP 429 with a JSON error body.
           </p>
         </section>
@@ -212,23 +212,23 @@ for issue in data["issues"]:
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border text-left text-text-muted">
+                <tr className="border-b border-zinc-800 text-left text-zinc-400">
                   <th className="py-3 pr-4">Status</th>
                   <th className="py-3">Description</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-border/50">
+                <tr className="border-b border-zinc-800/50">
                   <td className="py-3 pr-4 font-mono">400</td>
-                  <td className="py-3 text-text-muted">Invalid JSON body or missing source field</td>
+                  <td className="py-3 text-zinc-400">Invalid JSON body or missing source field</td>
                 </tr>
-                <tr className="border-b border-border/50">
+                <tr className="border-b border-zinc-800/50">
                   <td className="py-3 pr-4 font-mono">401</td>
-                  <td className="py-3 text-text-muted">Invalid or malformed API key</td>
+                  <td className="py-3 text-zinc-400">Invalid or malformed API key</td>
                 </tr>
-                <tr className="border-b border-border/50">
+                <tr className="border-b border-zinc-800/50">
                   <td className="py-3 pr-4 font-mono">429</td>
-                  <td className="py-3 text-text-muted">Rate limit exceeded (100 req/min)</td>
+                  <td className="py-3 text-zinc-400">Rate limit exceeded (100 req/min)</td>
                 </tr>
               </tbody>
             </table>
@@ -237,10 +237,10 @@ for issue in data["issues"]:
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8">
-        <div className="max-w-4xl mx-auto px-6 flex items-center justify-between text-sm text-text-dim">
-          <a href="/" className="hover:text-text-muted transition-colors">&larr; Back to SwiftGuard</a>
-          <span>Built by <a href="https://twitter.com/Kilo_Loco" className="hover:text-accent-blue transition-colors">Kilo Loco</a> · <a href="https://github.com/Kilo-Loco/swiftguard" className="hover:text-accent-blue transition-colors">GitHub</a></span>
+      <footer className="border-t border-zinc-800 py-8">
+        <div className="max-w-4xl mx-auto px-6 flex items-center justify-between text-sm text-zinc-600">
+          <a href="/" className="hover:text-zinc-400 transition-colors">&larr; Back to SwiftGuard</a>
+          <span>Built by <a href="https://twitter.com/Kilo_Loco" className="hover:text-blue-500 transition-colors">Kilo Loco</a> · <a href="https://github.com/Kilo-Loco/swiftguard" className="hover:text-blue-500 transition-colors">GitHub</a></span>
         </div>
       </footer>
     </div>
