@@ -1,5 +1,6 @@
 import type Parser from "tree-sitter";
 import type { Issue } from "@/types/api";
+import type { TypeRegistry } from "@/lib/type-registry";
 
 export type Severity = "error" | "warning" | "info";
 export type Tier = "critical" | "standard" | "style";
@@ -10,5 +11,5 @@ export interface Rule {
   tier: Tier;
   severity: Severity;
   description: string;
-  check(tree: Parser.Tree, source: string): Issue[];
+  check(tree: Parser.Tree, source: string, typeRegistry?: TypeRegistry): Issue[];
 }

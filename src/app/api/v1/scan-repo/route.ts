@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { parseSwift } from "@/lib/parser";
 import { runRules } from "@/lib/rules/engine";
 import { allRules } from "@/lib/rules/index";
+import { buildTypeRegistry } from "@/lib/type-registry";
 import type { Issue } from "@/types/api";
 
 const SKIP_PATTERNS = [
@@ -249,9 +250,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Step 3: Fetch and scan files in batches
-    const allIssues: ScanIssue[] = [];
-    let filesScanned = 0;
+    // Step 3: Fetch file contents in batches
+    const fetchedFiles: { path: string; content: string }[] = [];
 
     for (let i = 0; i < allFiles.length; i += BATCH_SIZE) {
       if (controller.signal.aborted) break;
@@ -266,24 +266,37 @@ export async function POST(request: NextRequest) {
           const content = await res.text();
           if (content.length > MAX_FILE_SIZE) return null;
 
-          const tree = parseSwift(content);
-          const issues = runRules(allRules, tree, content);
-          filesScanned++;
-
-          return issues.map(
-            (issue): ScanIssue => ({
-              ...issue,
-              file: file.path,
-              codeSnippet: extractSnippet(content, issue.line),
-            })
-          );
+          return { path: file.path, content };
         })
       );
 
       for (const result of results) {
         if (result.status === "fulfilled" && result.value) {
-          allIssues.push(...result.value);
+          fetchedFiles.push(result.value);
         }
+      }
+    }
+
+    // Pass 1: Build type registry from all fetched files
+    const typeRegistry = buildTypeRegistry(
+      fetchedFiles.map((f) => ({ path: f.path, source: f.content }))
+    );
+
+    // Pass 2: Run rules with cross-file type context
+    const allIssues: ScanIssue[] = [];
+    let filesScanned = 0;
+
+    for (const file of fetchedFiles) {
+      const tree = parseSwift(file.content);
+      const issues = runRules(allRules, tree, file.content, typeRegistry);
+      filesScanned++;
+
+      for (const issue of issues) {
+        allIssues.push({
+          ...issue,
+          file: file.path,
+          codeSnippet: extractSnippet(file.content, issue.line),
+        });
       }
     }
 

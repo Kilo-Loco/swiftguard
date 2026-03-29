@@ -1,4 +1,6 @@
 import { getNodesByType, getNodeText, findAncestor } from "@/lib/parser";
+import { isTypeSendable, isLikelyErrorType } from "@/lib/type-registry";
+import type { TypeRegistry } from "@/lib/type-registry";
 import type Parser from "tree-sitter";
 import type { Issue } from "@/types/api";
 import type { Rule } from "../types";
@@ -137,15 +139,69 @@ function isTaskCall(node: Parser.SyntaxNode, source: string): boolean {
 }
 
 /**
- * Collect variable names that are likely class instances from property_declarations.
- * A variable is "likely a class instance" if it's initialized with a call_expression
- * whose callee starts with an uppercase letter (ClassName() pattern).
+ * Try to resolve the type name for a variable from its declaration.
+ * Handles:
+ *   let x = TypeName()          → "TypeName"
+ *   let x: TypeName = ...       → "TypeName"
+ *   @State var x = TypeName()   → "TypeName"
  */
-function getClassInstanceVarNames(
+function resolveVarTypeName(
+  prop: Parser.SyntaxNode,
+  source: string
+): string | null {
+  // Strategy 1: explicit type annotation — let x: TypeName = ...
+  for (let i = 0; i < prop.childCount; i++) {
+    const child = prop.child(i)!;
+    if (child.type === "type_annotation") {
+      // The type_annotation contains the type node
+      for (let j = 0; j < child.childCount; j++) {
+        const typeNode = child.child(j)!;
+        if (
+          typeNode.type === "user_type" ||
+          typeNode.type === "type_identifier" ||
+          typeNode.type === "simple_identifier"
+        ) {
+          return getNodeText(typeNode, source);
+        }
+      }
+    }
+  }
+
+  // Strategy 2: initializer call expression — let x = TypeName()
+  for (let i = 0; i < prop.childCount; i++) {
+    const child = prop.child(i)!;
+    if (child.type === "call_expression") {
+      const callee = child.child(0);
+      if (callee && callee.type === "simple_identifier") {
+        const name = getNodeText(callee, source);
+        if (
+          name.length > 0 &&
+          name[0] === name[0].toUpperCase() &&
+          name[0] !== name[0].toLowerCase()
+        ) {
+          return name;
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+interface VarInfo {
+  varName: string;
+  typeName: string | null;
+}
+
+/**
+ * Collect variable names that are likely class instances from property_declarations,
+ * along with their resolved type names.
+ */
+function getClassInstanceVars(
   statementsNode: Parser.SyntaxNode,
   source: string
-): Set<string> {
-  const names = new Set<string>();
+): VarInfo[] {
+  const vars: VarInfo[] = [];
   const props = getNodesByType(statementsNode, "property_declaration");
 
   for (const prop of props) {
@@ -173,11 +229,12 @@ function getClassInstanceVarNames(
     }
 
     if (varName && isClassInit) {
-      names.add(varName);
+      const typeName = resolveVarTypeName(prop, source);
+      vars.push({ varName, typeName });
     }
   }
 
-  return names;
+  return vars;
 }
 
 /**
@@ -185,7 +242,7 @@ function getClassInstanceVarNames(
  */
 function findCapturedClassInstances(
   lambda: Parser.SyntaxNode,
-  classVars: Set<string>,
+  classVarNames: Set<string>,
   source: string
 ): string[] {
   const captured: string[] = [];
@@ -193,7 +250,7 @@ function findCapturedClassInstances(
 
   for (const id of identifiers) {
     const name = getNodeText(id, source);
-    if (classVars.has(name) && !captured.includes(name)) {
+    if (classVarNames.has(name) && !captured.includes(name)) {
       captured.push(name);
     }
   }
@@ -203,12 +260,14 @@ function findCapturedClassInstances(
 
 /**
  * Pattern A: Detect class instances captured in Task/Task.detached closures.
+ * When a TypeRegistry is available, skip variables whose type is known Sendable.
  */
 function checkTaskClosureCaptures(
   tree: Parser.Tree,
   source: string,
   ruleId: string,
-  severity: "error" | "warning" | "info"
+  severity: "error" | "warning" | "info",
+  typeRegistry?: TypeRegistry
 ): Issue[] {
   const issues: Issue[] = [];
   const callExprs = getNodesByType(tree.rootNode, "call_expression");
@@ -233,14 +292,41 @@ function checkTaskClosureCaptures(
     if (!enclosingBody) continue;
 
     // Get class-instance variables declared in the enclosing scope
-    const classVars = getClassInstanceVarNames(enclosingBody, source);
-    if (classVars.size === 0) continue;
+    const classVars = getClassInstanceVars(enclosingBody, source);
+    if (classVars.length === 0) continue;
+
+    // Build a set of var names, filtering out those whose type is known Sendable
+    const classVarNames = new Set<string>();
+    const varTypeMap = new Map<string, string | null>();
+
+    for (const v of classVars) {
+      varTypeMap.set(v.varName, v.typeName);
+
+      // If we have a type registry and can resolve the type, check Sendable status.
+      // Without a registry (single-file mode), fall back to flagging all class-like
+      // instances — the known-Sendable list alone could shadow local types.
+      if (typeRegistry && v.typeName) {
+        if (isTypeSendable(v.typeName, typeRegistry)) continue;
+      }
+
+      classVarNames.add(v.varName);
+    }
+
+    if (classVarNames.size === 0) continue;
 
     // Check if any class-instance variables are captured in the closure
-    const captured = findCapturedClassInstances(lambda, classVars, source);
+    const captured = findCapturedClassInstances(lambda, classVarNames, source);
     if (captured.length > 0) {
       const line = call.startPosition.row + 1;
       const column = call.startPosition.column + 1;
+
+      const capturedTypeName = varTypeMap.get(captured[0]) ?? null;
+
+      // Lower confidence for likely Error types
+      let confidence = 0.8;
+      if (capturedTypeName && isLikelyErrorType(capturedTypeName)) {
+        confidence = 0.5;
+      }
 
       issues.push({
         rule: ruleId,
@@ -248,7 +334,7 @@ function checkTaskClosureCaptures(
         message: `Non-Sendable class instance '${captured[0]}' is captured in a Task closure, crossing a concurrency boundary. This may cause data races.`,
         line,
         column,
-        confidence: 0.8,
+        confidence,
         suggestion:
           "Ensure the captured type conforms to Sendable, use an actor instead, or pass only value types across the boundary.",
         seProposal: "SE-0302",
@@ -268,7 +354,7 @@ export const nonSendableBoundaryRule: Rule = {
   description:
     "Detects non-Sendable types crossing concurrency boundaries: non-final classes conforming to Sendable, and class instances captured in Task closures.",
 
-  check(tree, source): Issue[] {
+  check(tree, source, typeRegistry?): Issue[] {
     const issues: Issue[] = [];
 
     // Pattern B: non-final class with Sendable conformance
@@ -278,7 +364,7 @@ export const nonSendableBoundaryRule: Rule = {
 
     // Pattern A: class instances captured in Task closures
     issues.push(
-      ...checkTaskClosureCaptures(tree, source, this.id, this.severity)
+      ...checkTaskClosureCaptures(tree, source, this.id, this.severity, typeRegistry)
     );
 
     return issues;
