@@ -105,6 +105,8 @@ function checkNonFinalSendableClasses(
       confidence: 0.95,
       suggestion:
         "Mark the class as 'final', convert to a struct, or use '@unchecked Sendable' with proper synchronization.",
+      seProposal: "SE-0302",
+      seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0302-concurrent-value-and-concurrent-closures.md",
     });
   }
 
@@ -249,6 +251,8 @@ function checkTaskClosureCaptures(
         confidence: 0.8,
         suggestion:
           "Ensure the captured type conforms to Sendable, use an actor instead, or pass only value types across the boundary.",
+        seProposal: "SE-0302",
+        seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0302-concurrent-value-and-concurrent-closures.md",
       });
     }
   }

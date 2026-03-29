@@ -185,6 +185,8 @@ function checkTaskDetachedViolations(
         confidence: 0.92,
         suggestion:
           "Use 'Task { }' instead of 'Task.detached { }' to inherit actor isolation, or access actor state with 'await'.",
+        seProposal: "SE-0306",
+        seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0306-actors.md",
       });
     }
   }
@@ -233,6 +235,8 @@ function checkNonisolatedViolations(
         confidence: 0.95,
         suggestion:
           "Remove 'nonisolated' to keep actor isolation, or change the accessed property to 'let'.",
+        seProposal: "SE-0306",
+        seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0306-actors.md",
       });
     }
   }
@@ -262,6 +266,8 @@ function checkNonisolatedViolations(
             confidence: 0.95,
             suggestion:
               "Remove 'nonisolated' to keep actor isolation, or change the accessed property to 'let'.",
+            seProposal: "SE-0306",
+            seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0306-actors.md",
           });
         }
       }
@@ -344,6 +350,8 @@ function checkCrossActorViolations(
           confidence: 0.85,
           suggestion:
             "Mark the method as 'async' and use 'await' for cross-actor property access.",
+          seProposal: "SE-0306",
+          seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0306-actors.md",
         });
         break; // One issue per function is enough
       }

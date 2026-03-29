@@ -169,6 +169,8 @@ export const missingSendableClosureRule: Rule = {
           column,
           confidence: 0.85,
           suggestion: `Add @Sendable before the closure type: @Sendable ${getNodeText(ft, source)}`,
+          seProposal: "SE-0302",
+          seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0302-concurrent-value-and-concurrent-closures.md",
         });
       }
     }

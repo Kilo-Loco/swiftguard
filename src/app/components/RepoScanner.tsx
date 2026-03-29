@@ -22,6 +22,8 @@ interface ScanIssue {
   confidence: number;
   message: string;
   suggestion: string;
+  seProposal?: string;
+  seProposalUrl?: string;
   codeSnippet?: CodeSnippet;
 }
 
@@ -412,6 +414,16 @@ export default function RepoScanner() {
                                 <code style={{ fontSize: 12, color: "#a5b4fc", fontFamily: "monospace" }}>
                                   {issue.rule}
                                 </code>
+                                {issue.seProposal && (
+                                  <a
+                                    href={issue.seProposalUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ fontSize: 11, color: "#6366f1", textDecoration: "none", marginLeft: 8 }}
+                                  >
+                                    {issue.seProposal} ↗
+                                  </a>
+                                )}
                                 <span style={{ fontSize: 12, color: "#64748b" }}>
                                   {Math.round(issue.confidence * 100)}% confidence
                                 </span>

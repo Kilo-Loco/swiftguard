@@ -12,6 +12,8 @@ export interface Issue {
   column: number;
   confidence: number;
   suggestion: string;
+  seProposal?: string;
+  seProposalUrl?: string;
 }
 
 export interface ReviewMetadata {

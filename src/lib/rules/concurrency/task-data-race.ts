@@ -309,6 +309,8 @@ function checkVarMutationInTasks(
             confidence: 0.92,
             suggestion:
               "Protect shared state with an actor, use a serial DispatchQueue, or restructure to avoid shared mutable state.",
+            seProposal: "SE-0304",
+            seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0304-structured-concurrency.md",
           });
         } else {
           issues.push({
@@ -320,6 +322,8 @@ function checkVarMutationInTasks(
             confidence: 0.9,
             suggestion:
               "Move the variable into the Task, protect it with an actor, or use a thread-safe container.",
+            seProposal: "SE-0304",
+            seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0304-structured-concurrency.md",
           });
         }
         break; // One issue per Task call is enough
@@ -377,6 +381,8 @@ function checkClassSelfMutationInTask(
           confidence: 0.88,
           suggestion:
             "Make the class an actor, add @MainActor, or protect the property with a lock or other synchronization mechanism.",
+          seProposal: "SE-0304",
+          seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0304-structured-concurrency.md",
         });
       }
     }

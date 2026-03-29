@@ -187,6 +187,8 @@ export const missingSendableConformanceRule: Rule = {
         column,
         confidence: 0.75,
         suggestion: `Add Sendable conformance: ${kind} ${typeName}: Sendable { ... }`,
+        seProposal: "SE-0302",
+        seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0302-concurrent-value-and-concurrent-closures.md",
       });
     }
 

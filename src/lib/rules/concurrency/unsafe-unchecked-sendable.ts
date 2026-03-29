@@ -189,6 +189,8 @@ export const unsafeUncheckedSendableRule: Rule = {
         confidence,
         suggestion:
           "Add synchronization (NSLock, DispatchQueue, OSAllocatedUnfairLock, etc.), make properties immutable (let), or convert to an actor.",
+        seProposal: "SE-0302",
+        seProposalUrl: "https://github.com/swiftlang/swift-evolution/blob/main/proposals/0302-concurrent-value-and-concurrent-closures.md",
       });
     }
 
