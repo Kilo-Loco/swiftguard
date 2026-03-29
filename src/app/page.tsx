@@ -15,7 +15,7 @@ export default function Home() {
         <RepoScanner />
       </main>
 
-      <footer className="py-6 text-center text-xs text-zinc-600">
+      <footer className="py-6 text-center text-xs text-zinc-500">
         <a href="https://twitter.com/Kilo_Loco" className="hover:text-zinc-400 transition-colors">Kilo Loco</a>
         {" · "}
         <a href="https://github.com/Kilo-Loco/swiftguard" className="hover:text-zinc-400 transition-colors">GitHub</a>

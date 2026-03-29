@@ -113,7 +113,7 @@ export default function RepoScanner() {
     : [];
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+    <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-6">
       {/* Input */}
       <div className="flex gap-3 mb-2">
         <input
@@ -124,7 +124,7 @@ export default function RepoScanner() {
             if (e.key === "Enter" && !loading) handleScan();
           }}
           placeholder="https://github.com/owner/repo"
-          className="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-100 font-mono placeholder:text-zinc-600 focus:outline-none focus:border-blue-500/50 transition-colors"
+          className="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-sm text-zinc-100 font-mono placeholder:text-zinc-500 focus:outline-none focus:border-blue-500/50 transition-colors"
           disabled={loading}
         />
         <button
@@ -162,7 +162,7 @@ export default function RepoScanner() {
       {result && (
         <div className="space-y-6">
           {/* Summary bar */}
-          <div className="flex flex-wrap items-center gap-3 p-4 bg-zinc-950 rounded-lg border border-zinc-800">
+          <div className="flex flex-wrap items-center gap-3 p-4 bg-zinc-950 rounded-lg border border-zinc-700">
             <div className="flex items-center gap-2 text-sm">
               <span className="text-zinc-400">Repo:</span>
               <span className="font-mono text-zinc-100">{result.repo}</span>
@@ -215,7 +215,7 @@ export default function RepoScanner() {
                 {ruleEntries.map(([rule, count]) => (
                   <div
                     key={rule}
-                    className="flex items-center justify-between bg-zinc-950 rounded-lg border border-zinc-800 px-3 py-2"
+                    className="flex items-center justify-between bg-zinc-950 rounded-lg border border-zinc-700 px-3 py-2"
                   >
                     <code className="text-xs font-mono text-zinc-100">{rule}</code>
                     <span className="text-xs font-semibold text-zinc-400 ml-2">
@@ -235,10 +235,10 @@ export default function RepoScanner() {
               </h4>
               <div className="space-y-2">
                 {result.topFiles.slice(0, 5).map((fileGroup) => (
-                  <div key={fileGroup.file} className="bg-zinc-950 rounded-lg border border-zinc-800 overflow-hidden">
+                  <div key={fileGroup.file} className="bg-zinc-950 rounded-lg border border-zinc-700 overflow-hidden">
                     <button
                       onClick={() => toggleFile(fileGroup.file)}
-                      className="w-full flex items-center justify-between px-4 py-3 hover:bg-zinc-800/20 transition-colors cursor-pointer text-left"
+                      className="w-full flex items-center justify-between px-4 py-3 hover:bg-zinc-700/30 transition-colors cursor-pointer text-left"
                     >
                       <code className="text-xs font-mono text-zinc-100 truncate mr-3">
                         {truncatePath(fileGroup.file)}
@@ -247,17 +247,17 @@ export default function RepoScanner() {
                         <span className="text-xs font-semibold text-zinc-400">
                           {fileGroup.issues} issue{fileGroup.issues !== 1 ? "s" : ""}
                         </span>
-                        <span className="text-zinc-600 text-xs">
+                        <span className="text-zinc-500 text-xs">
                           {expandedFiles.has(fileGroup.file) ? "\u25B2" : "\u25BC"}
                         </span>
                       </div>
                     </button>
                     {expandedFiles.has(fileGroup.file) && (
-                      <div className="border-t border-zinc-800 px-4 py-3 space-y-2">
+                      <div className="border-t border-zinc-700 px-4 py-3 space-y-2">
                         {fileGroup.details.map((issue, i) => (
                           <div
                             key={i}
-                            className={`p-3 rounded-lg border border-zinc-800 ${severityBg[issue.severity]}`}
+                            className={`p-3 rounded-lg border border-zinc-700 ${severityBg[issue.severity]}`}
                           >
                             <div className="flex items-start justify-between gap-2 mb-1">
                               <span
@@ -265,7 +265,7 @@ export default function RepoScanner() {
                               >
                                 {issue.severity}
                               </span>
-                              <span className="text-xs text-zinc-600 font-mono">
+                              <span className="text-xs text-zinc-500 font-mono">
                                 L{issue.line}:{issue.column}
                               </span>
                             </div>
@@ -274,12 +274,12 @@ export default function RepoScanner() {
                               <code className="text-xs text-zinc-400 font-mono">
                                 {issue.rule}
                               </code>
-                              <span className="text-xs text-zinc-600">
+                              <span className="text-xs text-zinc-500">
                                 {Math.round(issue.confidence * 100)}% confidence
                               </span>
                             </div>
                             {issue.suggestion && (
-                              <p className="text-xs text-zinc-400 mt-2 pt-2 border-t border-zinc-800">
+                              <p className="text-xs text-zinc-400 mt-2 pt-2 border-t border-zinc-700">
                                 {issue.suggestion}
                               </p>
                             )}
@@ -290,7 +290,7 @@ export default function RepoScanner() {
                   </div>
                 ))}
                 {result.topFiles.length > 5 && (
-                  <p className="text-xs text-zinc-600 text-center py-2">
+                  <p className="text-xs text-zinc-500 text-center py-2">
                     + {result.topFiles.length - 5} more files with issues
                   </p>
                 )}
