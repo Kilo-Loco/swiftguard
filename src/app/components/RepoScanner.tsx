@@ -339,13 +339,15 @@ export default function RepoScanner() {
                   >
                     <button
                       onClick={() => toggleFile(fileGroup.file)}
-                      className="w-full flex items-center justify-between px-4 py-3"
+                      className="w-full flex items-center justify-between"
+                      
                       style={{
                         background: "#1a1a2e",
                         border: "none",
                         cursor: "pointer",
                         textAlign: "left",
                         transition: "background 0.15s",
+                        padding: "16px 20px",
                       }}
                       onMouseEnter={(e) => (e.currentTarget.style.background = "#222244")}
                       onMouseLeave={(e) => (e.currentTarget.style.background = "#1a1a2e")}
@@ -462,7 +464,7 @@ export default function RepoScanner() {
                                         {snippetLine.highlighted ? "\u25B8" : " "} {snippetLine.num}
                                       </span>
                                       <span style={{ color: "#475569", userSelect: "none", flexShrink: 0 }}>│ </span>
-                                      <span style={{ color: snippetLine.highlighted ? "#e2e8f0" : "#94a3b8" }}>
+                                      <span style={{ color: snippetLine.highlighted ? "#e2e8f0" : "#94a3b8", whiteSpace: "pre" }}>
                                         {snippetLine.text}
                                       </span>
                                     </div>
