@@ -6,12 +6,12 @@ import { buildTypeRegistry } from "@/lib/type-registry";
 import type { Issue } from "@/types/api";
 
 const SKIP_PATTERNS = [
-  "/Tests/",
-  "/Test/",
-  "/Specs/",
-  "/__tests__/",
-  "/Fixtures/",
-  "/Mock/",
+  "Tests/",
+  "Test/",
+  "Specs/",
+  "__tests__/",
+  "Fixtures/",
+  "Mock/",
   "Pods/",
   ".build/",
   "DerivedData/",
@@ -101,7 +101,12 @@ function parseRepoUrl(input: string): { owner: string; repo: string } | null {
 }
 
 function shouldSkipPath(path: string): boolean {
-  return SKIP_PATTERNS.some((pattern) => path.includes(pattern));
+  // Normalize: check both the raw path and with a leading "/" so patterns
+  // match at the start of the path (GitHub tree API omits leading slash)
+  const normalized = "/" + path;
+  return SKIP_PATTERNS.some(
+    (pattern) => normalized.includes("/" + pattern)
+  );
 }
 
 async function fetchWithTimeout(

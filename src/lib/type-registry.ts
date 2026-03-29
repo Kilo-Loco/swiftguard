@@ -34,6 +34,18 @@ export const KNOWN_SENDABLE_TYPES = new Set([
   "PropertyListEncoder", "PropertyListDecoder",
   "Notification", "AttributedString",
 
+  // Foundation — reference types that are Sendable
+  "Encoder", "Decoder",
+  "NSRegularExpression",
+  "ProcessInfo",
+  "Bundle",
+  "FileManager",
+  "UserDefaults",
+  "NotificationCenter",
+  "URLSession",
+  "Timer",
+  "RunLoop",
+
   // Collections — value types
   "Array", "Dictionary", "Set", "Range", "ClosedRange",
 
@@ -43,10 +55,27 @@ export const KNOWN_SENDABLE_TYPES = new Set([
   "CheckedContinuation", "UnsafeContinuation",
   "MainActor",
 
+  // Synchronization primitives (always Sendable)
+  "ManagedAtomic", "UnsafeAtomic",
+  "ManagedAtomicLazyReference", "UnsafeAtomicLazyReference",
+  "OSAllocatedUnfairLock", "Mutex", "ManagedBuffer",
+  "NIOLoopBound", "NIOLoopBoundBox",
+
   // SwiftUI — value types
   "Color", "Font", "Image", "Text", "EdgeInsets",
   "CGFloat", "CGPoint", "CGSize", "CGRect",
   "Alignment", "Edge", "UnitPoint", "Angle", "Animation",
+
+  // SwiftUI — property wrappers and additional types
+  "Binding", "State", "Environment", "EnvironmentObject",
+  "ObservedObject", "StateObject",
+  "NavigationPath", "DismissAction", "OpenURLAction",
+  "ScenePhase", "ColorScheme",
+  "AnyTransition", "Transaction",
+
+  // Combine
+  "PassthroughSubject", "CurrentValueSubject",
+  "AnyCancellable", "AnyPublisher",
 
   // Common patterns
   "Void", "Never", "StaticString", "CodingKey",
@@ -361,6 +390,15 @@ export function isTypeSendable(
 
   // 2. Fall back to known standard-library / framework types
   if (KNOWN_SENDABLE_TYPES.has(typeName)) return true;
+
+  // 3. Heuristic: types starting with "Managed" or "Unsafe" followed by "Atomic"
+  //    are very likely Sendable synchronization primitives.
+  if (
+    (typeName.startsWith("Managed") || typeName.startsWith("Unsafe")) &&
+    typeName.includes("Atomic")
+  ) {
+    return true;
+  }
 
   return false;
 }
