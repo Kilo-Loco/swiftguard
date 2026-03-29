@@ -2,6 +2,17 @@
 
 import { useState } from "react";
 
+interface CodeSnippetLine {
+  num: number;
+  text: string;
+  highlighted?: boolean;
+}
+
+interface CodeSnippet {
+  startLine: number;
+  lines: CodeSnippetLine[];
+}
+
 interface ScanIssue {
   file: string;
   rule: string;
@@ -11,6 +22,7 @@ interface ScanIssue {
   confidence: number;
   message: string;
   suggestion: string;
+  codeSnippet?: CodeSnippet;
 }
 
 interface FileIssueGroup {
@@ -162,7 +174,7 @@ export default function RepoScanner() {
         </button>
       </div>
 
-      <div className="mb-4" />
+      <div style={{ height: 32 }} />
 
       {/* Loading state */}
       {loading && (
@@ -201,12 +213,12 @@ export default function RepoScanner() {
 
       {/* Results */}
       {result && (
-        <div className="space-y-6">
+        <div>
           {/* Summary bar */}
           <div
             className="flex flex-wrap items-center gap-3"
             style={{
-              padding: 16,
+              padding: 20,
               background: "#0f0f23",
               border: "1px solid #30304a",
               borderRadius: 8,
@@ -234,11 +246,11 @@ export default function RepoScanner() {
           </div>
 
           {/* Severity badges */}
-          <div className="flex flex-wrap gap-3 items-center">
+          <div className="flex flex-wrap items-center" style={{ marginTop: 20 }}>
             <div style={{ fontSize: 14, fontWeight: 600, color: "white" }}>
               {result.summary.total} issue{result.summary.total !== 1 ? "s" : ""} found
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2" style={{ marginLeft: 12 }}>
               {(["error", "warning", "info"] as const).map((sev) => {
                 const count = result.summary.bySeverity[sev] || 0;
                 if (count === 0) return null;
@@ -265,15 +277,15 @@ export default function RepoScanner() {
 
           {/* Rule breakdown */}
           {ruleEntries.length > 0 && (
-            <div>
+            <div style={{ marginTop: 28 }}>
               <h4
-                className="mb-3"
                 style={{
                   fontSize: 11,
                   fontWeight: 600,
                   color: "#94a3b8",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
+                  marginBottom: 12,
                 }}
               >
                 By Rule
@@ -301,20 +313,20 @@ export default function RepoScanner() {
 
           {/* Top files */}
           {result.topFiles.length > 0 && (
-            <div>
+            <div style={{ marginTop: 28 }}>
               <h4
-                className="mb-3"
                 style={{
                   fontSize: 11,
                   fontWeight: 600,
                   color: "#94a3b8",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
+                  marginBottom: 12,
                 }}
               >
                 Top Files ({result.filesWithIssues} files with issues)
               </h4>
-              <div className="space-y-2">
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {result.topFiles.slice(0, 5).map((fileGroup) => (
                   <div
                     key={fileGroup.file}
@@ -355,8 +367,13 @@ export default function RepoScanner() {
                     </button>
                     {expandedFiles.has(fileGroup.file) && (
                       <div
-                        className="px-4 py-3 space-y-2"
-                        style={{ borderTop: "1px solid #30304a" }}
+                        style={{
+                          padding: 16,
+                          borderTop: "1px solid #30304a",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 16,
+                        }}
                       >
                         {fileGroup.details.map((issue, i) => {
                           const colors = severityColors[issue.severity];
@@ -364,7 +381,7 @@ export default function RepoScanner() {
                             <div
                               key={i}
                               style={{
-                                padding: 12,
+                                padding: 20,
                                 background: "#0f0f23",
                                 borderLeft: `3px solid ${colors.border}`,
                                 borderRadius: 4,
@@ -396,15 +413,61 @@ export default function RepoScanner() {
                               </div>
                               {issue.suggestion && (
                                 <p
-                                  className="mt-2 pt-2"
                                   style={{
                                     fontSize: 12,
                                     color: "#94a3b8",
                                     borderTop: "1px solid #30304a",
+                                    marginTop: 8,
+                                    paddingTop: 8,
                                   }}
                                 >
                                   {issue.suggestion}
                                 </p>
+                              )}
+                              {issue.codeSnippet && (
+                                <div
+                                  style={{
+                                    marginTop: 12,
+                                    background: "#0a0a1a",
+                                    borderRadius: 6,
+                                    padding: 12,
+                                    fontFamily: "monospace",
+                                    fontSize: 13,
+                                    overflowX: "auto",
+                                  }}
+                                >
+                                  {issue.codeSnippet.lines.map((snippetLine) => (
+                                    <div
+                                      key={snippetLine.num}
+                                      style={{
+                                        display: "flex",
+                                        borderLeft: snippetLine.highlighted
+                                          ? `3px solid ${colors.border}`
+                                          : "3px solid transparent",
+                                        background: snippetLine.highlighted ? "#1e1e3a" : "transparent",
+                                        padding: "1px 0",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          color: "#475569",
+                                          minWidth: 44,
+                                          textAlign: "right",
+                                          paddingRight: 8,
+                                          paddingLeft: 8,
+                                          userSelect: "none",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        {snippetLine.highlighted ? "\u25B8" : " "} {snippetLine.num}
+                                      </span>
+                                      <span style={{ color: "#475569", userSelect: "none", flexShrink: 0 }}>│ </span>
+                                      <span style={{ color: snippetLine.highlighted ? "#e2e8f0" : "#94a3b8" }}>
+                                        {snippetLine.text}
+                                      </span>
+                                    </div>
+                                  ))}
+                                </div>
                               )}
                             </div>
                           );

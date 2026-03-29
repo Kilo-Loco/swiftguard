@@ -26,8 +26,34 @@ interface RepoScanRequest {
   branch?: string;
 }
 
+interface CodeSnippetLine {
+  num: number;
+  text: string;
+  highlighted?: boolean;
+}
+
+interface CodeSnippet {
+  startLine: number;
+  lines: CodeSnippetLine[];
+}
+
 interface ScanIssue extends Issue {
   file: string;
+  codeSnippet?: CodeSnippet;
+}
+
+function extractSnippet(source: string, line: number, before = 3, after = 2): CodeSnippet {
+  const lines = source.split("\n");
+  const start = Math.max(0, line - 1 - before);
+  const end = Math.min(lines.length, line - 1 + after + 1);
+  return {
+    startLine: start + 1,
+    lines: lines.slice(start, end).map((text, i) => ({
+      num: start + 1 + i,
+      text,
+      highlighted: start + 1 + i === line,
+    })),
+  };
 }
 
 interface FileIssueGroup {
@@ -248,6 +274,7 @@ export async function POST(request: NextRequest) {
             (issue): ScanIssue => ({
               ...issue,
               file: file.path,
+              codeSnippet: extractSnippet(content, issue.line),
             })
           );
         })
