@@ -327,7 +327,7 @@ export default function RepoScanner() {
                 Top Files ({result.filesWithIssues} files with issues)
               </h4>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                {result.topFiles.slice(0, 5).map((fileGroup) => (
+                {result.topFiles.map((fileGroup) => (
                   <div
                     key={fileGroup.file}
                     style={{
@@ -476,11 +476,7 @@ export default function RepoScanner() {
                     )}
                   </div>
                 ))}
-                {result.topFiles.length > 5 && (
-                  <p className="text-center py-2" style={{ fontSize: 12, color: "#64748b" }}>
-                    + {result.topFiles.length - 5} more files with issues
-                  </p>
-                )}
+
               </div>
             </div>
           )}
