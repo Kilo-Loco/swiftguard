@@ -290,19 +290,22 @@ export default function RepoScanner() {
               >
                 By Rule
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {ruleEntries.map(([rule, count]) => (
                   <div
                     key={rule}
-                    className="flex items-center justify-between px-3 py-2"
                     style={{
-                      background: "#0f0f23",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "14px 20px",
+                      background: "#12122a",
                       border: "1px solid #30304a",
                       borderRadius: 8,
                     }}
                   >
-                    <code style={{ fontSize: 12, fontFamily: "monospace", color: "#a5b4fc" }}>{rule}</code>
-                    <span style={{ fontSize: 12, fontWeight: 600, color: "#94a3b8", marginLeft: 8 }}>
+                    <code style={{ fontSize: 13, fontFamily: "monospace", color: "#a5b4fc" }}>{rule}</code>
+                    <span style={{ fontSize: 14, fontWeight: 600, color: "#e2e8f0", marginLeft: 12 }}>
                       {count}
                     </span>
                   </div>
